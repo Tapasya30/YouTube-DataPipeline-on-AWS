@@ -1,0 +1,46 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "S3Access",
+			"Effect": "Allow",
+			"Action": [
+				"s3:GetObject",
+				"s3:PutObject",
+				"s3:ListBucket",
+				"s3:GetBucketLocation"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "GlueAccess",
+			"Effect": "Allow",
+			"Action": [
+				"glue:GetTable",
+				"glue:GetDatabase",
+				"glue:CreateTable",
+				"glue:UpdateTable",
+				"glue:GetPartitions",
+				"glue:CreatePartition",
+				"glue:BatchCreatePartition"
+			],
+			"Resource": "*"
+		},
+		{
+			"Sid": "SNSAccess",
+			"Effect": "Allow",
+			"Action": "sns:Publish",
+			"Resource": "arn:aws:sns:ap-south-1::_-_-_-_-_-_-:Tapasya-yt-data-pipeline-alerts-dev-*"
+		},
+		{
+			"Sid": "AthenaAccess",
+			"Effect": "Allow",
+			"Action": [
+				"athena:StartQueryExecution",
+				"athena:GetQueryExecution",
+				"athena:GetQueryResults"
+			],
+			"Resource": "*"
+		}
+	]
+}
